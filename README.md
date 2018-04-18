@@ -14,7 +14,7 @@ montantIFI($valeur);
 
 | Montant du patrimoine immobilier   | Montant  |
 | ------------- | -----:|
-| Montant <1 300 000 | 0 |
-| Montant >=1 300 000 |   $12 |
+| Montant <1 300 000 | 0 € |
+| Montant 1 300 000 |   1250 € |
+..
 
-[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/ytQ5CYE1VZw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLC45fAQ5yw-myZIJe52e0-VORWLDA)](https://www.youtube.com/watch?v=ytQ5CYE1VZw&index=27&list=RDMMkutk2XHEZNU)
