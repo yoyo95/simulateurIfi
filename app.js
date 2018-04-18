@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	/*
-		Formule service des impots
+		Formule Service Communication FCC.
 		Code J ZERBIB
 	 */
 
@@ -75,24 +75,51 @@ $(document).ready(function(){
 
 	}
 
-	function reductionDeIfi($valeur){
-		if ($valeur>=66667) {
+
+	function reductionDeMonIfi($valeurDuDon){
+		$valeurDeMonIFI = Math.round(montantIFI($("#valeurPatrimoine").val()));
+		if ($valeurDuDon>=66667) {
+			if ($valeurDeMonIFI>=50000) {
 			return 50000;
-		}else{
-			$valeur = Math.round($valeur*0.75); //Valeur du don arrondi.
-			$valeurDeMonIFI = Math.round(montantIFI($("#valeurPatrimoine").val()));
-			console.log("valeur de mon ifi"+$valeurDeMonIFI);
-			if ($valeur>$valeurDeMonIFI) {
-				console.log("supperieur don a IFI");
-				return $valeurDeMonIFI;
+			}	
+		}
+		else{
+				donArrondi = Math.round($valeurDuDon*0.75);
+
+				//$valeurDeMonIFI = Math.round(montantIFI($("#valeurPatrimoine").val()));
+				if (donArrondi >= $valeurDeMonIFI) {
+					return $valeurDeMonIFI;
+				}
+				else{
+					return donArrondi*0.75;
+				}
 			}
-			else if($valeur>=66667){
-				return 50000;
-			}
-			else{
-				return $valeur*0.75;
+		
+	}
+
+
+	function ifiApresDon(){
+		return $valeurDeMonIFI- $valeurReductionDeMonIfi;
+	}
+
+	function impotRevenu(){
+		ir = valeurDuDon - $neutraliserCd;
+		if (valeurDuDon>$neutraliserCd) {
+			if (ir<=537) {
+				return ir*0.75;
+			}else{
+				ir = (537*0.75)+((ir-537)*0.66);
+			return ir;
 			}
 		}
+		
+	}
+
+	function totalAllReductions(){
+		ir = Math.round(impotRevenu());
+		vd1= reductionDeMonIfi(valeurDuDon);
+		vd2 = ir+vd1;
+		return vd2; 
 	}
 
 	$("#valeurDon").prop('disabled', true);
@@ -109,12 +136,26 @@ $(document).ready(function(){
 			valeurCoutDon = coutDon();
 			$("#coutDuDon").html(valeurCoutDon);
 			$("#valeurDon").prop('disabled', false);
+			$("#neutraliserIfi2").html($neutraliserCd);
 		});
 
+
+
 		$("#valeurDon").keyup(function(){
-			valeurDuDon = $("#valeurDon").val();
-			reductionifi = reductionDeIfi(valeurDuDon);
-			$("#reductionIfi").html(reductionifi);
-		})
+			nbVal = $("#valeurDon").val().length;
+			if (nbVal>1) {
+				valeurDuDon = $("#valeurDon").val();
+			
+				//Je reduis mon ifi de id=reductionIfi
+				$valeurReductionDeMonIfi = reductionDeMonIfi(valeurDuDon);
+				$("#reductionIfi").html($valeurReductionDeMonIfi);
+				$("#ifiApresDon").html(ifiApresDon());
+				impotRevenu();
+				$("#impotRevenu").html(Math.round(impotRevenu()));
+				console.log("affiche total reductions"+totalAllReductions());
+				totalImpot = totalAllReductions();
+				$("#totalAllReductions").html(totalImpot);
+			}
+		});
 
 });
