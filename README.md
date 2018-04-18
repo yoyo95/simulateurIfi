@@ -1,7 +1,7 @@
 # simulateurIfi
 ### Ceci est un simulateur pour calculer l'IFI                                      
 ### Languages : 
-HTML, JS
+*HTML, JS*
 #### /!\ Utilisation du framwork JQuery
 
 ##### Dans le fichier app.js aprés avoir importé JQuery
@@ -17,4 +17,7 @@ montantIFI($valeur);
 | Montant <1 300 000 | 0 € |
 | Montant 1 300 000 |   1250 € |
 ..
+
+Source
+###### [ SERVICE PUBLIC IFI](https://www.service-public.fr/particuliers/vosdroits/F138)
 
