@@ -1,4 +1,4 @@
-# Simulateur d'Ifi
+# Simulateur d'IFI
 ### Ceci est un simulateur pour calculer l'IFI                                      
 ### Languages : 
 *HTML, JS*
