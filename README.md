@@ -2,7 +2,7 @@
 ### Ceci est un simulateur pour calculer l'IFI                                      
 ### Languages : 
 *HTML, JS*
-#### /!\ Utilisation du framwork JQuery
+#### /!\ Utilisation du framwork JQuery.
 
 ##### Dans le fichier app.js aprés avoir importé JQuery
 ```Javascript
