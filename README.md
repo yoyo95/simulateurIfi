@@ -18,7 +18,7 @@ montantIFI($valeur);
 | Montant 1 300 000 |   1250 € |
 ..
 
-Un aperçu du rendu final:
+Un aperçu du rendu final:  
 ![Aperçu simulateur](https://preview.ibb.co/drkJ6J/simulator_Capture.png)
 
 Source
